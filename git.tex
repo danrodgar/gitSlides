@@ -120,7 +120,7 @@
 
 
 \title[Git] % (optional, use only with long paper titles)
-{Short Introduction to Git}
+{Short Introduction to SCM and Git}
 
 %\subtitle
 %{Presentation Subtitle} % (optional)
@@ -133,7 +133,9 @@
 \institute[University of Alcala] % (optional, but mostly needed)
 {
   %\inst{1}%
-  \textcolor{structure} %{\emph{\textbf{Computer Science Department} }}\\
+  %\textcolor{structure} %
+  %{\emph{\textbf{Computer Science Department} }}\\
+  Computer Science Department\\
   University of Alcala
 
 % - Use the \inst command only if there are several affiliations.
@@ -317,15 +319,15 @@ It is typically used as central repository:
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Init}
+\begin{frame}[fragile]{Initialization}
 
 Initialization:
 
 \begin{verbatim}
-% mkdir /path/to/your/project
-% cd /path/to/your/project
-% git init
-% git remote add origin https://<where>/<path>/<project.git>
+mkdir /path/to/your/project
+cd /path/to/your/project
+git init
+git remote add origin https://<where>/<path>/<project.git>
 \end{verbatim} 
 
 % Then we can start tracking files. To do so, we need to add commit, and push the file(s) that we want to track. 
@@ -347,9 +349,26 @@ local copy.
 
 \texttt{git clone <repo>}
 
-Note: once cloned, you can edit the repository as much as you
-want. No changes make their way back to the ‘central’ repository
-until you explicitly do so.
+E.g.:
+
+\texttt{git clone https://github.com/danrodgar/gitSlides.git}
+
+Note: once cloned, you can edit the repository as much as you want. No changes make their way back to the ‘central’ repository until you explicitly do so.
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Commit}
+
+Then we can start tracking files. To do so, we need to add commit, and push the file(s) that we want to track.
+%
+\begin{verbatim}
+echo "Just to create a file..." >> Readme.md
+git add Readme.md
+git commit -m 'Initial commit'
+git push -u origin master
+\end{verbatim}
 
 \end{frame}
 
@@ -358,16 +377,16 @@ until you explicitly do so.
 
 \texttt{diff -u <old file> <new file>} 
 
-shows you what changes you would need to apply to old file to change it into
+This command shows what changes you would need to apply to old file to change it into
 new file.
 
 Lines beginning with:
 \begin{itemize}
- \item --- or +++ tell you the old / new filenames
- \item @@ tells you where within the file you're looking \\
+ \item \texttt{---} or \texttt{+++} tell you the old / new filenames
+ \item \texttt{@@} points to where within the file you are looking \\
        (i.e. a space) are lines that are unchanged
- \item  - is a deleted line
- \item + is a newly added line
+ \item \texttt{-} is a deleted line
+ \item \texttt{+} is a newly added line
 \end{itemize}
 
 \end{frame}
@@ -383,7 +402,7 @@ cloned/pulled:
 
 \begin{itemize}
  \item If you have made local changes you have to git stash before
-pulling, then git stash pop afterwards
+pulling, then \texttt{git stash pop} afterwards
 \item You can see which files you’ve modified with git status
 \item You can permanently remove your local changes by: \texttt{git
 checkout <file>}
@@ -391,14 +410,23 @@ checkout <file>}
 
 \end{frame}
 
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Pushing}
 
 \texttt{git add <file>} makes git track the file <file> 
 
-\texttt{git commit .} (notice the ‘.’) records all changes into a commit
+Or to record all changes into a commit (notice the ‘.’):
 
-\texttt{git push} pushes all new commits to the central repository
+\texttt{git commit .} 
+
+\texttt{git push origin master} This pushes all new commits to the repository.
+
+
 \end{frame}
 
 
@@ -450,6 +478,23 @@ Branches are used extensively (e.g. some like feature branches).
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Getting an old commit}
+
+Sometimes you need to get an old file or discard some changes. With 
+
+\begin{itemize}
+ \item \texttt{git log} 
+ \item \texttt{git log -- oneline}
+\end{itemize}
+
+we can check previous commits and select one with \texttt{checkout}, e.g.:
+\begin{itemize}
+ \item \texttt{git checkout c71d008}
+\end{itemize}
+
+\end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Good practices}
@@ -463,9 +508,8 @@ This workflow is naturally captured by pull requests.
 Learn on the job: the best way to learn it is by using it. However:
 \begin{itemize}
   \item Best practice: regularly push and pull (at least daily, in general).
-  \item Don't  push half-finished changes or pull if you're in the middle of something
+  \item Don't push half-finished changes or pull if you're still working on something (in the middle of a task).
 \end{itemize}
-
 
 
 \end{frame}
