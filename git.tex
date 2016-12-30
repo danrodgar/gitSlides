@@ -59,7 +59,8 @@
 \usepackage{verbatim}
 \usepackage{listings}
 \usepackage{color}
- 
+\usepackage{url}
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -288,7 +289,9 @@ Main open source software configuration management systems
 
 There are many proprietary ones. 
 
-All software should be under a configuration management system. If it isn't, that software doesn't exist!
+Git is now the most popular one.
+
+All software should be under a version control system, if not, it ain't software!
 
 \end{frame}
 
@@ -296,16 +299,16 @@ All software should be under a configuration management system. If it isn't, tha
 \section{Git}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{What is git?}
+\begin{frame}{What is Git?}
 
 Git is an open source distributed version control system, created by Linus Torvald.
 
-\texttt{https://git-scm.com/}
+\url{https://git-scm.com/}
 
 It is easier to star with free hosting sites instead of maintaining your own server.
 
 \begin{itemize}
- \item Github: public repositories (as many as you want)
+ \item Github: public repositories (as many as you want), but private ones are not free.
  \item Bitbucket: allow us to keep private repositories limiting the number of collaborators.
 \end{itemize}
 
@@ -314,7 +317,6 @@ It is typically used as central repository:
  \item from which everyone pulls other people’s changes
  \item to which everyone pushes changes they have made
 \end{itemize}
-
 
 \end{frame}
 
@@ -329,15 +331,6 @@ cd /path/to/your/project
 git init
 git remote add origin https://<where>/<path>/<project.git>
 \end{verbatim} 
-
-% Then we can start tracking files. To do so, we need to add commit, and push the file(s) that we want to track. 
-% 
-% \begin{verbatim}
-% echo "The participants are..." >> contributors.txt
-% git add contributors.txt
-% git commit -m 'Initial commit with contributors'
-% git push -u origin master
-% \end{verbatim} 
 
 \end{frame}
 
@@ -364,30 +357,11 @@ Note: once cloned, you can edit the repository as much as you want. No changes m
 Then we can start tracking files. To do so, we need to add commit, and push the file(s) that we want to track.
 %
 \begin{verbatim}
-echo "Just to create a file..." >> Readme.md
+echo "A new file..." >> Readme.md
 git add Readme.md
 git commit -m 'Initial commit'
 git push -u origin master
 \end{verbatim}
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{diff}
-
-\texttt{diff -u <old file> <new file>} 
-
-This command shows what changes you would need to apply to old file to change it into
-new file.
-
-Lines beginning with:
-\begin{itemize}
- \item \texttt{---} or \texttt{+++} tell you the old / new filenames
- \item \texttt{@@} points to where within the file you are looking \\
-       (i.e. a space) are lines that are unchanged
- \item \texttt{-} is a deleted line
- \item \texttt{+} is a newly added line
-\end{itemize}
 
 \end{frame}
 
@@ -401,16 +375,14 @@ cloned/pulled:
 \texttt{git pull} .
 
 \begin{itemize}
- \item If you have made local changes you have to git stash before
+ \item If you have made local changes you have to \texttt{git stash} before
 pulling, then \texttt{git stash pop} afterwards
-\item You can see which files you’ve modified with git status
+\item You can see which files you've modified with \texttt{git status}
 \item You can permanently remove your local changes by: \texttt{git
 checkout <file>}
 \end{itemize}
 
 \end{frame}
-
-
 
 
 
@@ -447,13 +419,51 @@ select either HEAD (your changes) or remote, or a mix of the two
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Commits}	
+\begin{frame}{diff}
+
+\texttt{diff -u <old file> <new file>} 
+
+This command shows what changes you would need to apply to old file to change it into
+new file.
+
+Lines beginning with:
+\begin{itemize}
+ \item \texttt{--\-} or \texttt{+++} tell you the old / new filenames
+ \item \texttt{@@} points to where within the file you are looking \\
+       (i.e. a space) are lines that are unchanged
+ \item \texttt{-} is a deleted line
+ \item \texttt{+} is a newly added line
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Applying \texttt{diff} changes (patch command)}
+
+After the \texttt{patch.diff} is created as:
+
+\texttt{diff -u <old file> <new file> > file.patch }
+
+We can apply it with the \texttt{patch} command:
+
+\texttt{patch < file.patch}
+
+Note that the \texttt{file.patch} knows the name of the file to be patched.
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Commits}
 
 \begin{itemize}
  \item Merge commits record where parallel development unified
- \item How does git keep track of things when parallel development
+ \item How does Git keep track of things when parallel development
 happens?
-\item Every commit has an ID (it's hash), which is a 40 character SHA-1
+\item Every commit has an ID (its hash), which is a 40 character SHA-1
 hash based on the commit's content. Not guaranteed to be
 unique; but it probably is
 \end{itemize}
@@ -499,16 +509,14 @@ we can check previous commits and select one with \texttt{checkout}, e.g.:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Good practices}
 
-One of the best techniques for improving code quality is code
-review: changes are checked by someone other than their
-author before being merged into master. 
 
-This workflow is naturally captured by pull requests.
+Tipically changes are checked by someone other than their
+author before being merged into master. This kind of \textbf{code review} is is naturally captured by pull requests in Git.
 
 Learn on the job: the best way to learn it is by using it. However:
 \begin{itemize}
   \item Best practice: regularly push and pull (at least daily, in general).
-  \item Don't push half-finished changes or pull if you're still working on something (in the middle of a task).
+  \item Don't push half-baked changes or pull if you're in the middle of a task.
 \end{itemize}
 
 
