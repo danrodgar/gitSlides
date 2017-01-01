@@ -254,7 +254,7 @@
 % - Talk about 30s to 2min per frame. So there should be between about
 %   15 and 30 frames, all told.
 
-\section{Software Configuration Management}
+\section{Software Configuration Management (SCM)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -263,7 +263,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Version Control}
+\begin{frame}{Software Configuration Management (SCM)}{Version Control}
 
 Version control systems keep track of changes to source code.
 Allows multiple people to edit a project in a predictable manner.
@@ -273,7 +273,11 @@ Allows multiple people to edit a project in a predictable manner.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}[plain]{Software configuration Management}
+\subsection{Source Configuration Management}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain]{Software configuration Management (SCM)}{Source Configuration Management}
 
 
 Software configuration management is the task of tracking and controlling changes in the software, part of the larger cross-disciplinary field of configuration management.\\
@@ -297,9 +301,10 @@ All software should be under a version control system, if not, it ain't software
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Git}
+\subsection{What is Git?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{What is Git?}
+\begin{frame}{Git}{What is Git?}
 
 Git is an open source distributed version control system, created by Linus Torvald.
 
@@ -320,8 +325,54 @@ It is typically used as central repository:
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Git vs. SVN}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Git}{Git vs. SVN (I)}
+\begin{center}
+\begin{columns}
+	\column{.50\linewidth}
+	\centering Centralized (SVN)\\\smallskip
+\includegraphics[width=\linewidth]{figs/centralized.png}
+	\column{.50\linewidth}
+	\centering Distributed (Git)\\\smallskip
+\includegraphics[width=\linewidth]{figs/distributed.png}
+\end{columns}
+
+\tiny \href{http://softwareengineering.stackexchange.com/questions/35074/im-a-subversion-geek-why-should-i-consider-or-not-consider-mercurial-or-git-or}{(Source)}
+\end{center}
+\end{frame}
+
+\begin{frame}{Git}{Git vs. SVN (II)}
+\begin{center}
+\begin{columns}
+	\column{.50\linewidth}
+	\centering Fully distributed (Git)\\\smallskip
+	\includegraphics[width=\linewidth]{figs/fulldistributed.png}
+	\tiny \href{http://softwareengineering.stackexchange.com/questions/35074/im-a-subversion-geek-why-should-i-consider-or-not-consider-mercurial-or-git-or}{(Source)}
+
+	\column{.50\linewidth}
+	\begin{block}{Git concepts to know}
+	\begin{itemize}
+	\item Commit, update
+	\item Push, pull
+	\item Origin, remote
+	\end{itemize}
+	\end{block}
+\end{columns}
+
+\end{center}
+
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Initialization}
+\section{Using Git}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Repository initialization and clonning}
+\begin{frame}[fragile]{Using Git}{Repository initialization and clonning:Initialization}
 
 Initialization:
 
@@ -335,7 +386,7 @@ git remote add origin https://<where>/<path>/<project.git>
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Cloning}
+\begin{frame}{Using Git}{Repository initialization and clonning: Cloning}
 
 To work with someone else’s repository, we first need to clone it to get a
 local copy.
@@ -352,7 +403,8 @@ Note: once cloned, you can edit the repository as much as you want. No changes m
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Commit}
+\subsection{Basic commands}
+\begin{frame}[fragile]{Using Git}{Basic commands: Commit}
 
 Then we can start tracking files. To do so, we need to add commit, and push the file(s) that we want to track.
 %
@@ -367,7 +419,7 @@ git push -u origin master
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Pulling}
+\begin{frame}{Using Git}{Basic commands: Pulling}
 
 To integrate all changes other people have made since you
 cloned/pulled:
@@ -385,10 +437,8 @@ checkout <file>}
 \end{frame}
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Pushing}
+\begin{frame}{Using Git}{Basic commands: Pushing}
 
 \texttt{git add <file>} makes git track the file <file> 
 
@@ -403,7 +453,8 @@ Or to record all changes into a commit (notice the ‘.’):
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Merge and conflicts}
+\subsection{Merge and conflicts}
+\begin{frame}{Using Git}{Merge and conflicts}
 
 If two people both modify the same file, the first to push \emph{wins}.
 The second person will have to pull and merge before pushing.
@@ -419,7 +470,7 @@ select either HEAD (your changes) or remote, or a mix of the two
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{diff}
+\begin{frame}{Using Git}{Merge and conflicts: diff}
 
 \texttt{diff -u <old file> <new file>} 
 
@@ -439,7 +490,7 @@ Lines beginning with:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Applying \texttt{diff} changes (patch command)}
+\begin{frame}{Using Git}{Merge and conflicts: Applying \texttt{diff} changes (patch command)}
 
 After the \texttt{patch.diff} is created as:
 
@@ -457,7 +508,7 @@ Note that the \texttt{file.patch} knows the name of the file to be patched.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Commits}
+\begin{frame}{Using Git}{Commits}
 
 \begin{itemize}
  \item Merge commits record where parallel development unified
@@ -471,7 +522,8 @@ unique; but it probably is
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Branches}
+\subsection{Branches}
+\begin{frame}{Using Git}{Branches}
 
 Branches are used extensively (e.g. some like feature branches).
 
@@ -485,11 +537,17 @@ Branches are used extensively (e.g. some like feature branches).
  \item 
 \end{itemize}
 
-
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Getting an old commit}
+\subsection{Tags}
+\begin{frame}{Using Git}{Tags}
+	TODO
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Advanced Git}
+\begin{frame}{Using Git}{Advanced Git: Getting an old commit}
 
 Sometimes you need to get an old file or discard some changes. With 
 
@@ -507,7 +565,7 @@ we can check previous commits and select one with \texttt{checkout}, e.g.:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Good practices}
+\begin{frame}{Using Git}{Advanced Git: Good practices}
 
 
 Tipically changes are checked by someone other than their
@@ -519,9 +577,12 @@ Learn on the job: the best way to learn it is by using it. However:
   \item Don't push half-baked changes or pull if you're in the middle of a task.
 \end{itemize}
 
-
 \end{frame}
 
+\section{GitHub}
+\begin{frame}{GitHub}{TODO}
+TODO
+\end{frame}
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
