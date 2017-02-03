@@ -126,8 +126,8 @@
 %\subtitle
 %{Presentation Subtitle} % (optional)
 
-\author[D Rodriguez] % (optional, use only with lots of authors)dvanced Robot Control
-{Daniel Rodriguez}
+\author[D Rodriguez, D.F. Barrero] % (optional, use only with lots of authors)dvanced Robot Control
+{Daniel Rodriguez, David F. Barrero}
 % - Use the \inst{?} command only if the authors have different
 %   affiliation.
 
@@ -373,7 +373,14 @@ It is typically used as central repository:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Repository initialization and clonning}
 \begin{frame}[fragile]{Using Git}{Repository initialization and clonning:Initialization}
-
+\begin{columns}
+	\column{.50\linewidth}
+	\centering Centralized (SVN)\\\smallskip
+\includegraphics[width=\linewidth]{figs/centralized.png}
+	\column{.50\linewidth}
+	\centering Distributed (Git)\\\smallskip
+\includegraphics[width=\linewidth]{figs/distributed.png}
+\end{columns}
 Initialization:
 
 \begin{verbatim}
@@ -420,7 +427,14 @@ git push -u origin master
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Using Git}{Basic commands: Pulling}
-
+\begin{columns}
+	\column{.50\linewidth}
+	\centering Centralized (SVN)\\\smallskip
+\includegraphics[width=\linewidth]{figs/centralized.png}
+	\column{.50\linewidth}
+	\centering Distributed (Git)\\\smallskip
+\includegraphics[width=\linewidth]{figs/distributed.png}
+\end{columns}
 To integrate all changes other people have made since you
 cloned/pulled:
 
@@ -470,7 +484,7 @@ select either HEAD (your changes) or remote, or a mix of the two
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Using Git}{Merge and conflicts: diff}
+\begin{frame}{Using Git}{Merge and conflicts: \texttt{diff}}
 
 \texttt{diff -u <old file> <new file>} 
 
@@ -479,12 +493,58 @@ new file.
 
 Lines beginning with:
 \begin{itemize}
- \item \texttt{--\-} or \texttt{+++} tell you the old / new filenames
+ \item \texttt{- - -} or \texttt{+++} tell you the old / new filenames
  \item \texttt{@@} points to where within the file you are looking \\
        (i.e. a space) are lines that are unchanged
  \item \texttt{-} is a deleted line
  \item \texttt{+} is a newly added line
 \end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{Using Git}{Merge and conflicts: \texttt{diff} example}
+
+\begin{scriptsize}
+\begin{columns}
+	\column{.50\linewidth}
+	  \begin{verbatim}
+	  #include <stdio.h> 
+	  int main() {
+	    printf("Hello World\n");
+	  }
+	  \end{verbatim}
+	\column{.50\linewidth}
+	  \begin{verbatim}
+	    #include <stdio.h>
+	    int main(int argc, char *argv[]) {
+	    printf("Hello World\n");
+	    return 0;
+	    }
+	  \end{verbatim}
+\end{columns}
+
+Applying the \texttt{diff} command:
+\begin{verbatim}
+$ diff -u hello.c hello_new.c > hello.patch
+\end{verbatim}
+
+We get the following patch:
+\begin{verbatim}
+--- hello.c	2014-10-07 18:17:49.000000000 +0530
++++ hello_new.c	2014-10-07 18:17:54.000000000 +0530
+@@ -1,5 +1,6 @@
+ #include <stdio.h>
+-int main() {
++int main(int argc, char *argv[]) {
+ 	printf("Hello World\n");
++	return 0;
+ }
+\end{verbatim}
+\end{scriptsize}
+
 
 \end{frame}
 
@@ -505,6 +565,14 @@ Note that the \texttt{file.patch} knows the name of the file to be patched.
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Using Git}{Merge and conflicts: Original Patch!}
+
+\centering
+\includegraphics[width=.4\textwidth,height=\textheight,keepaspectratio]{figs/patch.png}
+
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -534,16 +602,15 @@ Branches are used extensively (e.g. some like feature branches).
  \item \texttt{git checkout <branch name>} switch branches
  \item To merge branch X into Y, checkout Y and run git merge X
 (i.e. you say “I want to merge another branch into me”)
- \item 
 \end{itemize}
 
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Tags}
-\begin{frame}{Using Git}{Tags}
-	TODO
-\end{frame}
+% \subsection{Tags}
+% \begin{frame}{Using Git}{Tags}
+% 	TODO
+% \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Advanced Git}
@@ -579,9 +646,15 @@ Learn on the job: the best way to learn it is by using it. However:
 
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{GitHub}
-\begin{frame}{GitHub}{TODO}
-TODO
+\begin{frame}{GitHub}{GitHub}
+
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figs/github.png}
+
+
 \end{frame}
 
 
