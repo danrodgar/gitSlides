@@ -291,30 +291,45 @@ Main open source software configuration management systems
  \item 2005 Git/Mercurial
 \end{itemize}
 
-There are many proprietary ones. 
-
-Git is now the most popular one.
+There are many proprietary ones but \texttt{Git} is now the most popular one by far.
 
 All software should be under a version control system, if not, it ain't software!
 
 \end{frame}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Git}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{What is Git?}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Git}{What is Git?}
 
+\begin{columns}
+\column{.70\textwidth}
 Git is an open source distributed version control system, created by Linus Torvald.
 
 \url{https://git-scm.com/}
 
-It is easier to star with free hosting sites instead of maintaining your own server.
+\column{.30\textwidth}
+\begin{center}
+ \includegraphics[width=.8\textwidth]{figs/torvalds-to-nvidia}
+\end{center}
+\end{columns}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Git}{Git sites}
+
+
+It is easier to start with free hosting sites instead of maintaining your own server.
 
 \begin{itemize}
- \item Github: public repositories (as many as you want), but private ones are not free.
- \item Bitbucket: allow us to keep private repositories limiting the number of collaborators.
+ \item \alert{Github}: public repositories (as many as you want), but private ones are not free.
+ \item \alert{Bitbucket}: allow us to keep private repositories limiting the number of collaborators.
 \end{itemize}
 
 It is typically used as central repository:
@@ -344,6 +359,9 @@ It is typically used as central repository:
 \end{center}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{frame}{Git}{Git vs. SVN (II)}
 \begin{center}
 \begin{columns}
@@ -355,9 +373,9 @@ It is typically used as central repository:
 	\column{.50\linewidth}
 	\begin{block}{Git concepts to know}
 	\begin{itemize}
-	\item Commit, update
-	\item Push, pull
-	\item Origin, remote
+	\item \texttt{commit}, \texttt{update}
+	\item \texttt{push}, \texttt{pull}
+	\item \texttt{origin}, \texttt{remote}
 	\end{itemize}
 	\end{block}
 \end{columns}
@@ -372,15 +390,18 @@ It is typically used as central repository:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Repository initialization and clonning}
-\begin{frame}[fragile]{Using Git}{Repository initialization and clonning:Initialization}
-\begin{columns}
-	\column{.50\linewidth}
-	\centering Centralized (SVN)\\\smallskip
-\includegraphics[width=\linewidth]{figs/centralized.png}
-	\column{.50\linewidth}
-	\centering Distributed (Git)\\\smallskip
-\includegraphics[width=\linewidth]{figs/distributed.png}
-\end{columns}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]{Using Git}{Basic commands: Repository initialization}
+
+When using Git for the first time:
+
+\begin{verbatim}
+git config -- 
+git config --
+\end{verbatim}
+
 Initialization:
 
 \begin{verbatim}
@@ -393,9 +414,9 @@ git remote add origin https://<where>/<path>/<project.git>
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Using Git}{Repository initialization and clonning: Cloning}
+\begin{frame}{Using Git}{Basic commands: Repository clonning}
 
-To work with someone else’s repository, we first need to clone it to get a
+To work with someone else’s repository, we first need to \emph{clone} it to get a
 local copy.
 
 \texttt{git clone <repo>}
@@ -404,17 +425,20 @@ E.g.:
 
 \texttt{git clone https://github.com/danrodgar/gitSlides.git}
 
-Note: once cloned, you can edit the repository as much as you want. No changes make their way back to the ‘central’ repository until you explicitly do so.
-
+\begin{footnotesize}Note: once cloned, you can edit the repository as much as you want. No changes make their way back to the ‘central’ repository until you explicitly do so.
+\end{footnotesize}
 \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Basic commands}
-\begin{frame}[fragile]{Using Git}{Basic commands: Commit}
 
-Then, we can start tracking files. To do so, we need to add \texttt{commit}, and \texttt{push} the file(s) that we want to track.
-%
+
+\begin{frame}[fragile]{Using Git}{Basic commands: tracking files}
+
+Then, we can start tracking files. To do so, we need to \texttt{add}, \texttt{commit}, and \texttt{push} the file(s) that we want to track.
+
+
 \begin{verbatim}
 echo "A new file..." >> Readme.md
 git add Readme.md
@@ -427,25 +451,30 @@ git push -u origin master
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Using Git}{Basic commands: Pulling}
-\begin{columns}
-	\column{.50\linewidth}
-	\centering Centralized (SVN)\\\smallskip
-\includegraphics[width=\linewidth]{figs/centralized.png}
-	\column{.50\linewidth}
-	\centering Distributed (Git)\\\smallskip
-\includegraphics[width=\linewidth]{figs/distributed.png}
-\end{columns}
-To integrate all changes other people have made since you
-cloned/pulled:
 
-\texttt{git pull} .
+% \begin{columns}
+% 	\column{.50\linewidth}
+% 	\centering Centralized (SVN)\\\smallskip
+% \includegraphics[width=\linewidth]{figs/centralized.png}
+% 	\column{.50\linewidth}
+% 	\centering Distributed (Git)\\\smallskip
+% \includegraphics[width=\linewidth]{figs/distributed.png}
+% \end{columns}
+% To integrate all changes other people have made since you
+% cloned/pulled: \texttt{git pull}
 
 \begin{itemize}
- \item If you have made local changes you have to \texttt{git stash} before
-pulling, then \texttt{git stash pop} afterwards
-\item You can see which files you've modified with \texttt{git status}
-\item You can permanently remove your local changes by: \texttt{git
-checkout <file>}
+ \item If you have made local changes you have to \\
+ \texttt{git stash} \\
+ before pulling, then \\
+ \texttt{git stash pop} \\
+ afterwards
+ 
+ \item You can see which files you've modified with\\
+  \texttt{git status}
+ 
+ \item You can permanently remove your local changes by \\
+ \texttt{git checkout <file>}
 \end{itemize}
 
 \end{frame}
