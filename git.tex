@@ -398,8 +398,8 @@ It is typically used as central repository:
 When using Git for the first time:
 
 \begin{verbatim}
-git config -- 
-git config --
+git config --global user.email user@uah.es 
+git config --global user.name  "Jane Doe"
 \end{verbatim}
 
 Initialization:
@@ -409,6 +409,7 @@ mkdir /path/to/your/project
 cd /path/to/your/project
 git init
 git remote add origin https://<where>/<path>/<project.git>
+git push -u origin --all # pushes up the repo and its refs for the first time
 \end{verbatim} 
 
 \end{frame}
