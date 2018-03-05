@@ -28,7 +28,7 @@
 
 \usetheme{UAH}
 \usecolortheme{UAH}
-\setbeamertemplate{navigation symbols}{} 
+\setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{caption}[numbered]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,7 +62,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FOOTLINE
 %% Comment/Uncomment the following blocks to modify the footline
-%% content in the body slides. 
+%% content in the body slides.
 
 
 %% Option A: Title and institute
@@ -91,13 +91,13 @@
       \begin{enumerate}
          \item Understand the need of SCM
          \item Implement software development workflows with Git and Github
-      \end{enumerate} 
+      \end{enumerate}
    \end{block}
 
    %\begin{block}{Bibliography}
    %   \begin{enumerate}
    %       \item The Java\textsuperscript{TM} Tutorials. Oracle. \href{https://docs.oracle.com/javase/tutorial/}{(Link)}
-   %   \end{enumerate} 
+   %   \end{enumerate}
    %\end{block}
 
 
@@ -123,7 +123,7 @@
 
 \begin{frame}{Software Configuration Management (SCM)}{Version Control}
 
-Version control systems keep track of changes to source code.
+Version control systems (VCS) keep track of changes to source code.
 Allows multiple people to edit a project in a predictable manner.
 
 \end{frame}
@@ -256,7 +256,7 @@ It is typically used as central repository:
 When using Git for the first time:
 
 \begin{verbatim}
-git config --global user.email user@uah.es 
+git config --global user.email user@uah.es
 git config --global user.name  "Jane Doe"
 \end{verbatim}
 
@@ -268,7 +268,7 @@ cd /path/to/your/project
 git init
 git remote add origin https://<where>/<path>/<project.git>
 git push -u origin --all # pushes up the repo and its refs for the first time
-\end{verbatim} 
+\end{verbatim}
 
 \end{frame}
 
@@ -328,10 +328,10 @@ git push -u origin master
  before pulling, then \\
  \texttt{git stash pop} \\
  afterwards
- 
+
  \item You can see which files you've modified with\\
   \texttt{git status}
- 
+
  \item You can permanently remove your local changes by \\
  \texttt{git checkout <file>}
 \end{itemize}
@@ -342,11 +342,11 @@ git push -u origin master
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Using Git}{Basic commands: Pushing}
 
-\texttt{git add <file>} makes git track the file <file> 
+\texttt{git add <file>} makes git track the file <file>
 
 Or to record all changes into a commit (notice the ‘.’):
 
-\texttt{git commit .} 
+\texttt{git commit .}
 
 \texttt{git push origin master} This pushes all new commits to the repository.
 
@@ -374,7 +374,7 @@ select either HEAD (your changes) or remote, or a mix of the two
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Using Git}{Merge and conflicts: \texttt{diff}}
 
-\texttt{diff -u <old file> <new file>} 
+\texttt{diff -u <old file> <new file>}
 
 This command shows what changes you would need to apply to old file to change it into
 new file.
@@ -399,7 +399,7 @@ Lines beginning with:
 \begin{columns}
 	\column{.50\linewidth}
 	  \begin{verbatim}
-	  #include <stdio.h> 
+	  #include <stdio.h>
 	  int main() {
 	    printf("Hello World\n");
 	  }
@@ -504,10 +504,10 @@ Branches are used extensively (e.g. some like feature branches).
 \subsection{Advanced Git}
 \begin{frame}{Using Git}{Advanced Git: Getting an old commit}
 
-Sometimes you need to get an old file or discard some changes. With 
+Sometimes you need to get an old file or discard some changes. With
 
 \begin{itemize}
- \item \texttt{git log} 
+ \item \texttt{git log}
  \item \texttt{git log -- oneline}
 \end{itemize}
 
@@ -548,9 +548,9 @@ Learn on the job: the best way to learn it is by using it. However:
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{frame}{}
-% 
+%
 % \end{frame}
-% 
+%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
