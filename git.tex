@@ -33,9 +33,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Presentation Info
-\title[Git]{Short Introduction to SCM and Git}
-\author{D. Rodríguez, D. F. Barrero}
-\institute{University of Alcalá}
+\title[Using Git]{\IfStrEq{\modo}{VIDEOJUEGOS}{Using Git and GitHub}{Short Introduction to SCM and Git}}
+\author{\IfStrEq{\modo}{VIDEOJUEGOS}{\asignatura}{D. Rodríguez, D. F. Barrero}}
+\institute{\IfStrEq{\modo}{VIDEOJUEGOS}{}{University of Alcalá}}
 \date{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -91,13 +91,11 @@
       \end{enumerate}
    \end{block}
 
-   %\begin{block}{Bibliography}
-   %   \begin{enumerate}
-   %       \item The Java\textsuperscript{TM} Tutorials. Oracle. \href{https://docs.oracle.com/javase/tutorial/}{(Link)}
-   %   \end{enumerate}
-   %\end{block}
-
-
+   \begin{block}{Bibliography}
+      \begin{enumerate}
+          \item GitHub Guides. \href{https://guides.github.com/}{(Link)}
+      \end{enumerate} 
+   \end{block}
 \end{frame}
 
 {
@@ -167,7 +165,8 @@ All software should be under a version control system, if not, it ain't software
 Git is an open source distributed version control system, created by Linus Torvald.
 
 \url{https://git-scm.com/}
-
+\\
+\href{https://try.github.io/levels/1/challenges/1}{(Interactive tutorial)}
 \column{.30\textwidth}
 \begin{center}
  \includegraphics[width=.8\textwidth]{figs/torvalds-to-nvidia}
@@ -183,7 +182,7 @@ Git is an open source distributed version control system, created by Linus Torva
 It is easier to start with free hosting sites instead of maintaining your own server.
 
 \begin{itemize}
- \item \alert{Github}: public repositories (as many as you want), but private ones are not free.
+ \item \alert{GitHub}: public repositories (as many as you want), but private ones are not free.
  \item \alert{Bitbucket}: allow us to keep private repositories limiting the number of collaborators.
 \end{itemize}
 
@@ -294,7 +293,6 @@ E.g.:
 
 Then, we can start tracking files. To do so, we need to \texttt{add}, \texttt{commit}, and \texttt{push} the file(s) that we want to track.
 
-
 \begin{verbatim}
 echo "A new file..." >> Readme.md
 git add Readme.md
@@ -387,8 +385,6 @@ Lines beginning with:
 
 \end{frame}
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Using Git}{Merge and conflicts: \texttt{diff} example}
 
@@ -478,13 +474,15 @@ unique; but it probably is
 \subsection{Branches}
 \begin{frame}{Using Git}{Branches}
 
+\centering \includegraphics[width=.8\textwidth]{figs/branching}
+
 Branches are used extensively (e.g. some like feature branches).
 
 \begin{itemize}
  \item A repository (local and remote) can have explicit branches
- \item The default branch is called master
- \item \texttt{git branch <name>} creates branches
- \item \texttt{git checkout <branch name>} switch branches
+ \item The default branch is called \alert{master}\\
+ 		\texttt{git branch <name>} creates branches\\
+  		\texttt{git checkout <branch name>} switch branches\\
  \item To merge branch X into Y, checkout Y and run git merge X
 (i.e. you say “I want to merge another branch into me”)
 \end{itemize}
@@ -519,11 +517,11 @@ we can check previous commits and select one with \texttt{checkout}, e.g.:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Using Git}{Advanced Git: Good practices}
 
-
 Tipically changes are checked by someone other than their
 author before being merged into master. This kind of \textbf{code review} is is naturally captured by pull requests in Git.
 
 Learn on the job: the best way to learn it is by using it. However:
+
 \begin{itemize}
   \item Best practice: regularly push and pull (at least daily, in general).
   \item Don't push half-baked changes or pull if you're in the middle of a task.
@@ -534,14 +532,132 @@ Learn on the job: the best way to learn it is by using it. However:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{GitHub}
-\begin{frame}{GitHub}{GitHub}
-
-\centering
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{figs/github.png}
-
-
+\subsection{Features}
+\begin{frame}{GitHub}{Features}
+	\begin{columns}
+	\column{.10\textwidth}
+	\column{.50\textwidth}
+		Free Git hosting provider
+		\begin{itemize}
+			\item Free public repositories
+		\end{itemize}
+		User interface to Git
+		\begin{itemize}
+			\item Repository browser
+		\end{itemize}
+		Added value Git operations
+		\begin{itemize}
+			\item Gist
+			\item Pull requests	
+			\item Collaborative tools
+			\item Issue tracking
+			\item Web hosting
+			\item Integrated Jekyll processor
+			\item Markdown integration
+		\end{itemize}
+	\column{.30\textwidth}
+	\begin{center}
+ 		\includegraphics[width=.8\textwidth]{figs/github-logo}
+	\end{center}
+	\column{.10\textwidth}
+	\end{columns}
 \end{frame}
 
+\subsection{Repository creation}
+\begin{frame}{GitHub}{Repository creation}
+	Configure the repository
+	\begin{itemize}
+		\item Name
+		\item Description
+		\item README (quite important!)
+		\item gitignore and licence
+	\end{itemize}
+	Special file: README.md
+	\begin{itemize}
+		\item Contains information about the project
+		\item Automatically visualized
+		\item md means Markdown
+	\end{itemize}
+
+	\begin{block}{Task: Create a Hello Wold}
+		Read and follow the following instructions\\
+		\url{https://guides.github.com/activities/hello-world/}
+	\end{block}
+\end{frame}
+
+\subsection{Markdown}
+\begin{frame}[fragile]{Markdown}
+	\vspace{-0.3cm}
+	\begin{columns}
+	\column{.4\textwidth}
+	Markdown: Trivial markup
+	\begin{itemize}
+		\item Simple
+		\item Very simple
+		\item Extremely simple
+		\item Did I say it's simple?
+	\end{itemize}
+	VERY powerful
+	\begin{itemize}
+		\item Several outputs
+		\item Professional quality
+		\item ... and simple!
+	\end{itemize}
+	\column{.6\textwidth}
+		\begin{exampleblock}{Markdown example}
+			\vspace{-0.3cm}
+			\begin{lstlisting}[mathescape]
+# I am a header
+## I am a subheader
+
+Regular, *italic* and **bold**
+
+- List item 1
+- List item 2
+
+[I am a link](http://foo.com)
+
+![I am a pic](markdown.png)
+
+~~~C
+printf("Hello, world");
+~~~
+			\end{lstlisting}
+			\vspace{-0.2cm}
+		\end{exampleblock}
+	\end{columns}
+\end{frame}
+
+\subsection{GitHub Pages}
+
+\begin{frame}{GitHub}{GitHub Pages}
+	Pages integrate web site in the GitHub workflow
+	\begin{itemize}
+		\item Creation of full web sites
+		\item Project web site
+		\item Documentation
+		\item Based on Markdown (and something named \textit{Jekyll}
+	\end{itemize}
+
+	GitHub locates the content to publish in three places:
+	\begin{itemize}
+		\item A branch named \texttt{gh-pages}
+		\item master itself
+		\item A folder \texttt{docs} in master
+		\item \textbf{Page available on \url{https://<username>.github.io/<repository>}}
+	\end{itemize}
+
+	By default, Pages are disabled 
+	\begin{itemize}
+		\item Enable them in settings
+	\end{itemize}
+
+	User Page. Site accesible in \url{https://<username>.github.io}
+	\begin{itemize}
+		\item The repository must be named \texttt{<username>.github.io}
+		\item master branch
+	\end{itemize}
+\end{frame}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \begin{frame}{}
