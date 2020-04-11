@@ -182,8 +182,9 @@ Git is an open source distributed version control system, created by Linus Torva
 It is easier to start with free hosting sites instead of maintaining your own server.
 
 \begin{itemize}
- \item \alert{GitHub}: public repositories (as many as you want), but private ones are not free.
+ \item \alert{GitHub}: public repositories (as many as you want), but private ones are not free (except for academia). It is now part of Microsoft.
  \item \alert{Bitbucket}: allow us to keep private repositories limiting the number of collaborators.
+ \item \alert{GitLab}: IT allows both public and private without limitations. It is becoming more popular.
 \end{itemize}
 
 It is typically used as central repository:
@@ -337,9 +338,12 @@ git push -u origin master
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Using Git}{Basic commands: Pushing}
 
-\texttt{git add <file>} makes git track the file <file>
+\texttt{git add <file>} makes git track the file \texttt{<file>}
+
+~ 
 
 Or to record all changes into a commit (notice the ‘.’):
+
 
 \texttt{git commit .}
 
@@ -495,8 +499,12 @@ Branches are used extensively (e.g. some like feature branches).
 % 	TODO
 % \end{frame}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Advanced Git}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Using Git}{Advanced Git: Getting an old commit}
 
 Sometimes you need to get an old file or discard some changes. With
@@ -512,6 +520,17 @@ we can check previous commits and select one with \texttt{checkout}, e.g.:
 \end{itemize}
 
 \end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Using Git}{Advanced Git: Pull Requests}
+
+
+% Sometimes you need to get an old file or discard some changes. With
+
+% TODO
+
+
+% \end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -530,9 +549,14 @@ Learn on the job: the best way to learn it is by using it. However:
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{GitHub}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Features}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{GitHub}{Features}
 	\begin{columns}
 	\column{.10\textwidth}
@@ -563,7 +587,12 @@ Learn on the job: the best way to learn it is by using it. However:
 	\end{columns}
 \end{frame}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Repository creation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{GitHub Pages}
 \begin{frame}{GitHub}{Repository creation}
 	Configure the repository
 	\begin{itemize}
@@ -572,11 +601,11 @@ Learn on the job: the best way to learn it is by using it. However:
 		\item README (quite important!)
 		\item gitignore and licence
 	\end{itemize}
-	Special file: README.md
+	Special file: \texttt{README.md}
 	\begin{itemize}
 		\item Contains information about the project
 		\item Automatically visualized
-		\item md means Markdown
+		\item \texttt{md} means Markdown
 	\end{itemize}
 
 	\begin{block}{Task: Create a Hello Wold}
@@ -585,7 +614,10 @@ Learn on the job: the best way to learn it is by using it. However:
 	\end{block}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Markdown}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{Markdown}
 	\vspace{-0.3cm}
 	\begin{columns}
@@ -628,15 +660,17 @@ printf("Hello, world");
 	\end{columns}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{GitHub Pages}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{GitHub}{GitHub Pages}
 	Pages integrate web site in the GitHub workflow
 	\begin{itemize}
 		\item Creation of full web sites
 		\item Project web site
 		\item Documentation
-		\item Based on Markdown (and something named \textit{Jekyll}
+		\item Based on Markdown (and something named \textit{Jekyll}}
 	\end{itemize}
 
 	GitHub locates the content to publish in three places:
