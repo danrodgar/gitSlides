@@ -26,6 +26,10 @@
 \usepackage{xstring}
 \usepackage{listings}
 
+% Custom packages
+\usepackage{svg}
+\setsvg{inkscape = "inkscape" -z -D}
+
 \usetheme{UAH}
 \usecolortheme{UAH}
 \setbeamertemplate{navigation symbols}{}
@@ -86,7 +90,7 @@
 \begin{frame}[plain]{}
    \begin{block}{Objectives}
       \begin{enumerate}
-         \item Understand the need of SCM
+         \item Understand the need of version control
          \item Implement software development workflows with Git and Github
       \end{enumerate}
    \end{block}
@@ -488,13 +492,17 @@ Do no use branches in the project!
 \subsection{Tags}
 \begin{frame}{Using Git}{Tags}
 
+% dfbarrero: Imagen obtenida de los ejemplos de Google Diagrams. 
+% Se utilizo Inkscape para generar EPS a partir de SVG
+\includegraphics[width=0.8\textwidth]{figs/workflow.eps}
+
+\bigskip
+
 A tag is a pointer to a specific point in the repository history
 \begin{itemize}
 	\item Tags usually have names (e.g. ``v1.1'')
  \item Widely used to keep and publish software releases
 \end{itemize}
-
-You might try to tag your project
 
 \end{frame}
 
@@ -539,10 +547,16 @@ Learn on the job: the best way to learn it is by using it.
 Best practices
 \begin{itemize}
   \item Regularly push and pull (at least daily, in general)
+  \item $\Rightarrow$ Test before pushing! $\Leftarrow$
   \item Don't push half-baked changes 
   \item Don't pull if you're in the middle of a task
   \item Never commit temporal/intermediate files
   \item The master must be a clean and functional version of the project
+\end{itemize}
+
+Remember: Git never overwrites local changes without an explicit order
+\begin{itemize}
+  \item .. even with a \texttt{git pull}
 \end{itemize}
 
 \end{frame}
