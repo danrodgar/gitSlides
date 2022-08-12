@@ -10,7 +10,7 @@ UAH fonts:
 
 https://portal.uah.es/portal/page/portal/servicio_comunicacion/PG_IMAGEN_TIPOGRAFIAS
 
-# Acknowledgements
+## Acknowledgements
 
 Some figures taken from:
 
