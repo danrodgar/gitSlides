@@ -33,9 +33,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Presentation Info
-\title[Using Git]{\IfStrEq{\modo}{VIDEOJUEGOS}{Using Git and GitHub}{Short Introduction to SCM and Git}}
-\author{\IfStrEq{\modo}{VIDEOJUEGOS}{\asignatura}{D. Rodríguez, D. F. Barrero}}
-\institute{\IfStrEq{\modo}{VIDEOJUEGOS}{}{University of Alcalá}}
+\title[Git]{Short Introduction to SCM and Git}
+\author{Daniel Rodriguez, David F. Barrero}
+\institute{University of Alcala}
 \date{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -50,7 +50,7 @@
 %% Opacidad de los logotipos
 \newcommand{\opacidad}{1}
 %% Descomentar para habilitar logotipo en pié de página de portada
-\renewcommand{\logoUno}{Images/isg.png}
+%\renewcommand{\logoUno}{Images/isg.png}
 %% Descomentar para habilitar logotipo en pié de página de portada
 %\renewcommand{\logoDos}{Images/CCLogo.png}
 %% Descomentar para habilitar logotipo en pié de página de portada
@@ -99,9 +99,9 @@
 \end{frame}
 
 {
-\disableNavigation{white}
-\begin{frame}[shrink]{Table of Contents}
- \frametitle{Table of Contents}
+%\disableNavigation{white}
+\begin{frame}{Table of Contents}
+ %\frametitle{Table of Contents}
  \tableofcontents
   % You might wish to add the option [pausesections]
 \end{frame}
@@ -298,7 +298,7 @@ Then, we can start tracking files. To do so, we need to \texttt{add}, \texttt{co
 echo "A new file..." >> Readme.md
 git add Readme.md
 git commit -m 'Initial commit'
-git push -u origin master
+git push -u origin main
 \end{verbatim}
 
 \end{frame}
@@ -394,14 +394,14 @@ Lines beginning with:
 
 \begin{scriptsize}
 \begin{columns}
-	\column{.50\linewidth}
-	  \begin{verbatim}
+\column{.50\textwidth}
+\begin{verbatim}
 #include <stdio.h>
 int main() {
     printf("Hello World\n");
 }
 \end{verbatim}
-	\column{.50\linewidth}
+\column{.50\textwidth}
 \begin{verbatim}
 #include <stdio.h>
 int main(int argc, char *argv[]) {
@@ -424,8 +424,8 @@ We get the following patch:
  #include <stdio.h>
 -int main() {
 +int main(int argc, char *argv[]) {
- 	printf("Hello World\n");
-+	return 0;
+   printf("Hello World\n");
++  return 0;
  }
 \end{verbatim}
 \end{scriptsize}
@@ -638,7 +638,7 @@ Learn on the job: the best way to learn it is by using it. However:
 	\column{.6\textwidth}
 		\begin{exampleblock}{Markdown example}
 			\vspace{-0.3cm}
-			\begin{lstlisting}[mathescape]
+\begin{lstlisting}[mathescape]
 # I am a header
 ## I am a subheader
 
@@ -650,11 +650,7 @@ Regular, *italic* and **bold**
 [I am a link](http://foo.com)
 
 ![I am a pic](markdown.png)
-
-~~~C
-printf("Hello, world");
-~~~
-			\end{lstlisting}
+\end{lstlisting}
 			\vspace{-0.2cm}
 		\end{exampleblock}
 	\end{columns}
@@ -670,7 +666,7 @@ printf("Hello, world");
 		\item Creation of full web sites
 		\item Project web site
 		\item Documentation
-		\item Based on Markdown (and something named \textit{Jekyll}}
+		\item Based on Markdown (and \textit{Jekyll})
 	\end{itemize}
 
 	GitHub locates the content to publish in three places:
